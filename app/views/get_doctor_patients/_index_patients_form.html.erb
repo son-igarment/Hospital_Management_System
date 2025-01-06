@@ -1,0 +1,6 @@
+<h1>Doctor:</h1>
+<%= form_with url: get_doctor_patients_url, method: 'get' do |f| %>
+  <%= label_tag :doctor %>
+  <%= select_tag 'doctor', options_for_select(Employee.where('job_type = ?', 'doctor').collect{ |p| ["#{p.first_name+' '+p.last_name+'-'+p.id.to_s}", p.id ] })  %>
+  <%= f.submit "Search" %>
+<% end %>

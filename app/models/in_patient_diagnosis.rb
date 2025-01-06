@@ -1,0 +1,2 @@
+class InPatientDiagnosis < ApplicationRecord
+end

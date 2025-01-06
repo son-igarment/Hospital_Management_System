@@ -1,0 +1,2 @@
+class UseExaminationMedication < ApplicationRecord
+end

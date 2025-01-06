@@ -1,0 +1,20 @@
+<h1>Search Patients</h1>
+<div>
+  <%= form_with url: search_url, method: "get" do |f| %>
+    <%= label_tag 'In patient' %>
+    <%= check_box_tag 'In patient' %>
+    <%= label_tag 'Out patient' %>
+    <%= check_box_tag 'Out patient' %>
+    <br>
+    <%= f.label :patient_name %>
+    <%= f.search_field :patient_name %>
+    <br>
+    <%= f.label :patient_phone_number %>
+    <%= f.search_field :patient_phone_number %>
+    <br>
+    <%= f.label :patient_address %>
+    <%= f.search_field :patient_address %>
+    <br>
+    <%= f.submit 'search' %>
+  <% end %>
+</div>

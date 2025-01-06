@@ -1,0 +1,43 @@
+<h1>New In-patient Registration</h1>
+<%= form_with url: in_patients_url, method: "post" do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name  %>
+  <br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+  <%= f.label :phone_no, "Phone number" %>
+  <%= f.telephone_field :phone_no, pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}" %>
+  <br>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <br>
+  <%= label_tag 'gender' %>
+  <%= select_tag 'gender', raw("<option value=\"M\">Male</option><option value=\"F\">Female</option>") %>
+  <br>
+  <%= f.label :dob, "Date of Birth" %>
+  <%= f.date_field :dob %>
+  <br>
+  <%= label_tag :sickroom %>
+  <%= select_tag 'sickroom', raw("<option>4161</option><option>2005</option><option>4235</option><option>4346</option><option>3725</option><option>3385</option><option>4665</option><option>4165</option><option>2283</option><option>4195</option>") %>
+  <br>
+  <%= f.label :doa, "Date of Admission" %>
+  <%= f.date_field :doa %>
+  <br>
+  <%= f.label :fee %>
+  <%= f.number_field :fee, step: 0.5 %>
+  <br>
+  <%= label_tag 'nurse' %>
+  <%= select_tag 'nurse', options_for_select(Employee.where('job_type = ?', 'nurse').collect{ |p| ["#{p.first_name+' '+p.last_name}", p.id ] }) %>
+  <br>
+  <%= f.submit "Register" %>
+<% end %>
+
+
+<%# 2020-01-06 21:18:22,2019-11-27 08:25:22,2019-12-01 21:02:11,2020-01-01 04:13:44,2020-01-08 10:26:35,2020-01-03 19:06:21,2019-01-03 20:47:34,2019-12-10 14:08:12,2020-01-08 04:27:33,2019-12-09 05:44:32
+
+2020-09-14 13:33:39,2019-12-15 09:39:32,2020-02-03 19:13:26,2020-10-05 02:00:00,2020-04-26 03:56:55,2020-10-05 08:32:17,2019-11-29 13:45:35,2020-04-04 14:25:42,2020-04-08 21:21:42,2020-02-19 17:09:08
+
+4,8,2,8,10,2,2,10,8,10
+
+000000001,000000002,000000003,000000004,000000005,000000006,000000007,000000008,000000009,000000010 %>

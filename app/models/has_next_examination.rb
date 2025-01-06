@@ -1,0 +1,2 @@
+class HasNextExamination < ApplicationRecord
+end

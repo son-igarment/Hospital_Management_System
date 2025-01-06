@@ -1,0 +1,2 @@
+class ConfirmRecovery < ApplicationRecord
+end
